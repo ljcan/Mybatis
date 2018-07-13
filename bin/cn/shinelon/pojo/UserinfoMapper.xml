@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis">
+  <insert id="insertUserinfoByid" parameterType="java.util.HashMap" useGeneratedKeys="true" keyProperty="id">
+	insert into userinfo(username,age,inserttime) values(#{username},#{age},#{inserttime})  	
+  </insert>
+  <select id="getUserinfoByid" parameterType="int" resultType="cn.shinelon.pojo.Userinfo">
+  	select * from userinfo where id=#{id}
+  </select>
+  <delete id="deleteUserinfoByid" parameterType="int">
+  	delete from userinfo where id=#{id}
+  </delete>
+  <update id="updateUserinfoByid" parameterType="cn.shinelon.pojo.Userinfo">
+  	update userinfo set username=#{username},age=#{age},inserttime=#{inserttime} where id=#{id}
+  </update>
+  <select id="getAllUserinfo" parameterType="int" resultType="cn.shinelon.pojo.Userinfo">
+  	select * from userinfo
+  </select>
+</mapper>
